@@ -1,6 +1,9 @@
 const express = require("express");
+const Battle = require("./src/battle");
+const Player = require("./src/player");
 const app = express();
 const port = 3000;
+const battle = new Battle()
 
 app.set("views", "./views");
 app.set("view engine", "ejs");
@@ -12,13 +15,13 @@ app.get("/", (req, res) => {
 });
 
 app.post("/", (req, res) => {
-	console.log(req.body)
-	console.log(req.body['first-person-name'])
-	console.log(req.body['second-person-name'])
+	const player1 = new Player(req.body.first_person_name)
+	const player2 = new Player(req.body.second_person_name)
+	console.log(battle.addPlayer(player1,player2))
+	console.log(battle.players)
 	res.render("./battle", 
-	{firstPersonName:req.body['first-person-name'],
-	secondPersonName:req.body['second-person-name']
-})});
+	{firstPersonName:player1.name,
+	secondPersonName:player2.name})});
 
 
 app.listen(port, () => {

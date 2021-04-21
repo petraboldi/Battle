@@ -6,15 +6,15 @@ describe("battle unit tests ", () => {
 		let Player1 = new Player("Marie");
 		let Player2 = new Player("Petra");
 		let Battle1 = new Battle();
-		let BattlePlayers = Battle1.addPlayer(Player1, Player2);
-		expect(BattlePlayers).toBe(["Marie", "Petra"]);
+	    Battle1.addPlayer(Player1, Player2);
+		expect(Battle1.player1[0]).toBe('Marie');
 	});
 	it("expecting battle to begin", () => {
 		let Player1 = new Player("Marie");
 		let Player2 = new Player("Petra");
 		let Battle2 = new Battle();
 		Battle2.addPlayer(Player1, Player2);
-		let BattleBegin = Battle1.startBattle();
-		expect(BattleBegin).toBe("Battle started between Marie and Petra");
+		let BattleBegin = Battle2.startBattle();
+		expect(BattleBegin).toBe("Battle started between Marie and Petra!");
 	});
 });
