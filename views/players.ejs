@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+
+	<body>
+		<h1>These are the players!</h1>
+		<p>
+			<span><%= `${firstPersonName} ${firstPersonHitPoints}` %></span>
+			<span><%= `${secondPersonName} ${secondPersonHitPoints}`%></span>
+		</p>
+		<form action="/attack" method="post">
+			<input id="start-battle-button" type="submit" value="start battle" />
+		</form>
+		<p></p>
+	</body>
+</html>

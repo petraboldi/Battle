@@ -1,17 +1,20 @@
 describe("battle feature test", function () {
-	beforeEach(function () {
-		cy.visit("/");
-	});
+	// beforeEach(function () {
+	// 	cy.visit("/");
+	// });
 	//asserting page has correct content upon load
-	it("shows a heading for the game", function () {
-		cy.contains("Get ready to battle!");
+	it("on load shows a heading for the game", function () {
+		cy.visit("/");
+		cy.contains("Welcome to battle!");
 	});
-		it("shows an input field for providing names", function () {
-		cy.get('#first-player').type('Marie')
-		cy.get('#second-player').type('Petra')
-		cy.get('#submit-button').click()
-		cy.contains('The first player is Marie!')
-		cy.contains('The second player is Petra!')
+	it("shows players names, hitpoints and start attack button on page", function () {
+		cy.visit("/");
+		cy.get("#first-player").type("Marie");
+		cy.get("#second-player").type("Petra");
+		cy.get("#submit-button").click();
+		cy.contains("Marie, 100");
+		cy.contains("Petra, 100");
+		cy.get("#start-attack-button").should("be.visible");
+		cy.url().should("include", "/players");
 	});
-
 });
