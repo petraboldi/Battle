@@ -22,8 +22,19 @@ describe("battle unit tests ", () => {
 		let Player2 = new Player("Petra");
 		let Battle2 = new Battle();
 		Battle2.addPlayer(Player1, Player2);
-		let BattleBegin = Battle2.startBattle();
 		Battle2.attack(Player2);
 		expect(Player2.hitPoints).toBe(90);
+	});
+	it("Players are reversed", () => {
+		let Player1 = new Player("Marie");
+		let Player2 = new Player("Petra");
+		let Battle2 = new Battle();
+		Battle2.addPlayer(Player1, Player2);
+		Battle2.reverse()
+		console.log(Battle2.player1[0])
+		console.log(Battle2.player2[0])
+		console.log(Battle2.player1[1])
+		console.log(Battle2.player2[1])
+		expect(Battle2.player1[0]).toBe('Petra');
 	});
 });

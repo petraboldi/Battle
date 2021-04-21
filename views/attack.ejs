@@ -10,11 +10,11 @@
 	<body>
 		<h1>Start Attack!</h1>
 		<p>
-			<span><%= `${firstPersonName} ${firstPersonHitPoints}` %></span>
-			<span><%= `${secondPersonName} ${secondPersonHitPoints}`</span>
+			<span><%=`${firstPersonName}: ${firstPersonHitPoints}` %></span>
+			<span><%=`${secondPersonName} :${secondPersonHitPoints}`%></span>
 		</p>
-		<form action="/game" method="post">
-			<input id="start-attack-button" type="submit" name="start-battle" />
+		<form action="/attack" method="post">
+			<input id="turn-button" type="submit" value="turn"/>
 		</form>
 		<p></p>
 	</body>
